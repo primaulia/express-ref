@@ -6,12 +6,10 @@ var app = express()
 var port = 4000
 
 // require path
-var path = require('path')
+// var path = require('path')
 
 // running express with ejs
 app.set('view engine', 'ejs')
-
-// app.use('/', express.static(path.join(__dirname, 'views')))
 
 // example of a middleware
 // app.use(function (req, res, next) {
@@ -20,14 +18,30 @@ app.set('view engine', 'ejs')
 // })
 
 // set all the routes
-var routes = require('./routes/index')
-var user_routes = require('./routes/users')
-var posts_routes = require('./routes/posts')
+// var routes = require('./routes/index')
+// var user_routes = require('./routes/users')
+// var posts_routes = require('./routes/posts')
 
 // set the middleware for routes
 app.get('/', function (req, res) {
-  // res.send('homepage')
-  res.render('index', {name: 'Glen Choo'})
+  var tas = {
+    test: 'test',
+    t2st: 42
+  }
+  res.render('index', {
+    name: 'Glen Choo',
+    tasList: tas
+  })
+})
+
+// set the middleware for routes
+app.get('/about', function (req, res) {
+  res.render('about', {name: 'Glen Choo'})
+})
+
+// set the middleware for routes
+app.get('/contact', function (req, res) {
+  res.render('contact', {name: 'Glen Choo'})
 })
 
 // app.use('/', routes)
