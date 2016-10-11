@@ -6,7 +6,7 @@ router.get('/posts', function (req, res) {
 })
 
 router.get('/posts/new', function (req, res) {
-  res.send('NEW NEW NEW HERE')
+  res.send('NEW NEW NEW HERE YOWYOYOWYOWW')
 })
 
 router.get('/posts/:id', function (req, res) {
@@ -15,7 +15,7 @@ router.get('/posts/:id', function (req, res) {
 })
 
 router.get('/posts/:id/edit', function (req, res) {
-  res.send('this is posts 1 edit page')
+  res.send('this is posts 1 edit page heylow')
 })
 
 module.exports = router

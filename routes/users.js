@@ -12,7 +12,7 @@ router.get('/about', function (req, res) {
 })
 
 router.get('/contact', function (req, res) {
-  res.send('this is the users contact page')
+  res.send('this is the users contact page yow')
 })
 
 router.get('/hello', function (req, res) {
