@@ -22,7 +22,14 @@ router.get('/', function (req, res) {
 
 // the only POST request
 router.post('/', function (req, res) {
-  res.send(req.body)
+  // get the post parameter
+  // {
+  // username: "primaulia",
+  // userpassword: "test123"
+  // }
+  var posted_username = req.body.username
+  var posted_password = req.body.userpassword
+  res.send('posted username is ' + posted_username + ' and posted password is: ' + posted_password)
 })
 
 // only PUT request
