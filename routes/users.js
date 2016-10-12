@@ -15,9 +15,23 @@ router.get('/', function (req, res) {
   // NEW route under NEW.EJS
   res.render('users/new')
 }).get('/:id', function (req, res) {
-  res.send('user\'s ' + req.params.id + ' details')
+  res.send('ROUTES GOES HERE INSTEAD')
 }).get('/:id/edit', function (req, res) {
-  res.render('users/edit')
+ // {
+ //  name: 'glen',
+ //  password: 'glen123'
+ // }
+
+ // connect to the database
+ // retrieve it by the id
+ // store it in a variable
+ // pass it over to the view
+  var userdata = {
+    name: 'glen chooooooo',
+    password: 'glen123'
+  }
+
+  res.render('users/edit', userdata)
   // res.send('edit user\'s ' + req.params.id + ' details')
 })
 
@@ -36,7 +50,7 @@ router.post('/', function (req, res) {
 
 // only PUT request
 router.put('/:id', function (req, res) {
-  res.send('edit user' + req.params.id)
+  res.send('SHOULDVE GONE HERE')
 })
 
 // DELETE ROUTES
