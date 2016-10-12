@@ -9,15 +9,16 @@ var router = express.Router()
 
 // All the GET requests
 router.get('/', function (req, res) {
-  // all movies view under INDEX.EJS
-  res.render('movies/index')
+  // all users view under INDEX.EJS
+  res.render('users/index')
 }).get('/new', function (req, res) {
   // NEW route under NEW.EJS
-  res.render('movies/new')
+  res.render('users/new')
 }).get('/:id', function (req, res) {
-  res.send('movie\'s ' + req.params.id + ' details')
+  res.send('user\'s ' + req.params.id + ' details')
 }).get('/:id/edit', function (req, res) {
-  res.send('edit movie\'s ' + req.params.id + ' details')
+  res.render('users/edit')
+  // res.send('edit user\'s ' + req.params.id + ' details')
 })
 
 // the only POST request
@@ -35,12 +36,12 @@ router.post('/', function (req, res) {
 
 // only PUT request
 router.put('/:id', function (req, res) {
-  res.send('edit movie' + req.params.id)
+  res.send('edit user' + req.params.id)
 })
 
 // DELETE ROUTES
 router.delete('/:id', function (req, res) {
-  res.send('delete movie' + req.params.id)
+  res.send('delete user' + req.params.id)
 })
 
 module.exports = router

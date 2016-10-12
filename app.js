@@ -9,6 +9,7 @@ var port = 4000
 // set all the routes
 var static_routes = require('./routes/pages')
 var movie_routes = require('./routes/movies')
+var user_routes = require('./routes/users')
 // var user_routes = require('./routes/users')
 // var posts_routes = require('./routes/posts')
 
@@ -16,6 +17,7 @@ var movie_routes = require('./routes/movies')
 app.use(express.static(__dirname + '/public'))
 
 // capture all request, let it filtered by body-parse package
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
 }))
@@ -27,6 +29,8 @@ app.set('view engine', 'ejs')
 app.use('/', static_routes)
 // add middleware to handle all movie routes
 app.use('/movies', movie_routes)
+// add middleware to handle all user routes
+app.use('/users', user_routes)
 
 // listening to the opened port
 app.listen(port)
