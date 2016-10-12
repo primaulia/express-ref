@@ -2,9 +2,9 @@
   "name": "express-blog",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon app",
+    "start": "nodemon",
     "test": "echo \"Error: no test specified yoo hoo\" && exit 1"
   },
   "author": "",
