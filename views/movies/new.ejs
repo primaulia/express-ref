@@ -1,0 +1,18 @@
+<%# include relative path to the partials file %>
+<% include ../partials/header.ejs  %>
+
+<h1>NEW MOVIE FORM</h1>
+
+<form method="post" action="/movies">
+  <div class="form-group">
+    <label for="name">Movie Name</label>
+    <input type="text" class="form-control" id="name" placeholder="Movie Name">
+  </div>
+  <div class="form-group">
+    <label for="year">Movie Year</label>
+    <input type="text" class="form-control" id="year" placeholder="Movie Year">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<% include ../partials/footer.ejs  %>

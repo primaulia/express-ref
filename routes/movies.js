@@ -7,30 +7,25 @@ var router = express.Router()
 
 // READ ROUTES
 
-// read all movies' details
+// All the GET requests
 router.get('/', function (req, res) {
-  res.send('all movies details')
-})
-
-// read one movie details
-router.get('/:id', function (req, res) {
+  // all movies view under INDEX.EJS
+  res.render('movies/index')
+}).get('/new', function (req, res) {
+  // NEW route under NEW.EJS
+  res.render('movies/new')
+}).get('/:id', function (req, res) {
   res.send('movie\'s ' + req.params.id + ' details')
-})
-
-// CREATE ROUTES
-router.get('/new', function (req, res) {
-  res.send('new movie form')
-})
-
-router.post('/', function (req, res) {
-  res.send('post movie form')
-})
-
-// UPDATE ROUTES
-router.get('/:id/edit', function (req, res) {
+}).get('/:id/edit', function (req, res) {
   res.send('edit movie\'s ' + req.params.id + ' details')
 })
 
+// the only POST request
+router.post('/', function (req, res) {
+  res.send(req.body)
+})
+
+// only PUT request
 router.put('/:id', function (req, res) {
   res.send('edit movie' + req.params.id)
 })
