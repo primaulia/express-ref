@@ -17,7 +17,6 @@ router.get('/', function (req, res) {
   // Model.find({field}, callback(err, data))
   Movie.find({}, function (err, moviesArr) {
     if (err) throw new Error(err)
-    console.log(moviesArr)
 
     res.render('movies/index', {
       moviesArr: moviesArr,
