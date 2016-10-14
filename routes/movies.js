@@ -12,7 +12,18 @@ var Movie = require('../models/movie')
 // All the GET requests
 router.get('/', function (req, res) {
   // all movies view under INDEX.EJS
-  res.render('movies/index')
+
+  // Signature of a movie find
+  // Model.find({field}, callback(err, data))
+  Movie.find({}, function (err, moviesArr) {
+    if (err) throw new Error(err)
+    console.log(moviesArr)
+
+    res.render('movies/index', {
+      moviesArr: moviesArr,
+      name: 'Glen'
+    })
+  })
 }).get('/new', function (req, res) {
   // NEW route under NEW.EJS
   res.render('movies/new')
@@ -39,11 +50,16 @@ router.post('/', function (req, res) {
     rating: 4
   })
 
+  // console.log(newMovie)
+
   newMovie.save(function (err) {
     if (err) throw new Error(err)
   })
 
-  res.send(req.body)
+  res.send(newMovie)
+  // res.render('movies/index', {
+  //   'message': 'form submitted'
+  // })
 })
 
 // only PUT request
