@@ -1,6 +1,8 @@
 var express = require('express')
 var router = express.Router()
 
+var Movie = require('../models/movie')
+
 // setting the route to homepage
 // app.get('/path-name', callback(request, response)) NO
 // use router.get instead
@@ -29,8 +31,19 @@ router.post('/', function (req, res) {
   // }
   // var posted_username = req.body.username
   // var posted_password = req.body.userpassword
-  res.send(req.body)
   // res.send('posted username is ' + posted_username + ' and posted password is: ' + posted_password)
+
+  var newMovie = new Movie({
+    name: req.body.newmovie.name,
+    year: req.body.newmovie.year,
+    rating: 4
+  })
+
+  newMovie.save(function (err) {
+    if (err) throw new Error(err)
+  })
+
+  res.send(req.body)
 })
 
 // only PUT request
